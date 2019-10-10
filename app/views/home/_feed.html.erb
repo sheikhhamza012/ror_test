@@ -1,9 +1,13 @@
 <h2>    <%=current_user.username%>:<%=current_user.id%>    </h2><br>
  <div class="container-fluid">
- <%@items=current_user.posts.paginate(:page => params[:page], :per_page =>10)%>
-<% @items.each do |a|%>
+ <%@items=Post.all.paginate(:page => params[:page], :per_page =>10)%>
+<% @items.reverse.each do |a|%>
     <div class="row">
-        <%=a.id %>:&nbsp;&nbsp;&nbsp;<%=a.msg %>
+        <%=a.id %>:&nbsp;&nbsp;&nbsp;<%=a.msg %><br>
+        <% if a.image.attached? %>
+            <img height="100" width="100" src=<%= url_for(a.image)%>/>
+        <% end %>
+        <hr>
     </div>
 <%end%>
 </div>
@@ -12,11 +16,12 @@
 
 
 
-    <form action="post/new" method="post">
+    <form action="post/new" enctype="multipart/form-data" method="post">
 <input type="text" name="post[msg]" placeholder="msg"/>
 <!-- <input type="text" name="user[email]" placeholder="mail"/> -->
 <input type="hidden" value=0 name=post[msg_type] />
 <input type="submit" value="submit"/>
+<input type="file" name=post[image]>
 
 </form>
 
