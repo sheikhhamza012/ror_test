@@ -1,0 +1,16 @@
+
+<form action="profile/edit" method="post">
+<input type="text" name="user[username]" placeholder="username"/>
+<!-- <input type="text" name="user[email]" placeholder="mail"/> -->
+<input type="submit" value="submit"/>
+
+</form>
+
+
+<div class="container-fluid">
+    <% current_user.posts.each do |a|%>
+        <div class="row">
+            <%=a.id %>:&nbsp;&nbsp;&nbsp;<%=a.msg %>
+        </div>
+    <%end%>
+    </div>

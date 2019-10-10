@@ -1,0 +1,7 @@
+<div class="contain-fluid">
+<% if user_signed_in? %>
+    <%= render 'feed' %>
+<% else %>
+    <%=controller.redirect_to new_user_session_path %>
+<% end %>
+</div>

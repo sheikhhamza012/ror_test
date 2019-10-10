@@ -1,0 +1,24 @@
+<h2>    <%=current_user.username%>:<%=current_user.id%>    </h2><br>
+ <div class="container-fluid">
+ <%@items=current_user.posts.paginate(:page => params[:page], :per_page =>10)%>
+<% @items.each do |a|%>
+    <div class="row">
+        <%=a.id %>:&nbsp;&nbsp;&nbsp;<%=a.msg %>
+    </div>
+<%end%>
+</div>
+    <a data-method="delete" href=<%=destroy_user_session_path%>>Logout</a><br>
+    <a href="/profile">profile</a>
+
+
+
+    <form action="post/new" method="post">
+<input type="text" name="post[msg]" placeholder="msg"/>
+<!-- <input type="text" name="user[email]" placeholder="mail"/> -->
+<input type="hidden" value=0 name=post[msg_type] />
+<input type="submit" value="submit"/>
+
+</form>
+
+
+<%= will_paginate @items , :renderer => BootstrapPagination::Rails %>
