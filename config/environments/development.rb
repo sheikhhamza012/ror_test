@@ -41,7 +41,29 @@ Rails.application.configure do
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
-  # Highlight code that triggered database queries in logs.
+  config.action_mailer.delivery_method = :sendmail
+# Defaults to:
+# config.action_mailer.sendmail_settings = {
+#   location: '/usr/sbin/sendmail',
+#   arguments: '-i'
+# }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'no-reply@example.com'}
+
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'gmail.com',
+  user_name:            'mhumza@aldaimsolutions.com',
+  password:             '',
+  authentication:       'plain',
+  enable_starttls_auto: true  }
+
+
+
+    # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
   config.action_controller.allow_forgery_protection = false
   config.active_storage.service = :local

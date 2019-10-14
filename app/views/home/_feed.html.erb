@@ -1,9 +1,9 @@
 <h2>    <%=current_user.username%>:<%=current_user.id%>    </h2><br>
  <div class="container-fluid">
- <%@items=Post.all.paginate(:page => params[:page], :per_page =>10)%>
-<% @items.reverse.each do |a|%>
+ <%@items=Post.all.order('id DESC').paginate(:page => params[:page], :per_page =>10)%>
+<% @items.each do |a|%>
     <div class="row">
-        <%=a.id %>:&nbsp;&nbsp;&nbsp;<%=a.msg %><br>
+        <%=a.id %>:&nbsp;&nbsp;&nbsp;<%=a.msg %>:&nbsp;&nbsp;&nbsp;<%=a.created_at %><br>
         <% if a.image.attached? %>
             <img height="100" width="100" src=<%= url_for(a.image)%>/>
         <% end %>

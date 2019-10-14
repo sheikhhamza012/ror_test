@@ -33,9 +33,12 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'activestorage'
+gem "letter_opener", :group => :development
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'redis'
+gem 'sidekiq'
+gem 'sidekiq-cron'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
