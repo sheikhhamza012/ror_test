@@ -12,6 +12,8 @@ default: &default
 development:
   <<: *default
   database: instagram
+
+
 local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
