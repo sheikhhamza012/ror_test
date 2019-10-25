@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 gem 'devise'
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
 gem 'will_paginate', '~> 3.1.1'
 gem 'will_paginate-bootstrap' 
